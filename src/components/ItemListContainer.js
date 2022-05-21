@@ -1,9 +1,9 @@
 import './ItemListContainer.css';
 
-function ItemListContainer() {
+function ItemListContainer(props) {
     return (
         <h1 className='container'>
-            Hello World!
+            {props.greeting}
         </h1>
     );
 }
