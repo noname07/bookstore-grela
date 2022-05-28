@@ -1,17 +1,29 @@
-import { AppBar, Toolbar } from "@mui/material";
-import { Box } from "@mui/system";
-import Brand from "./Brand";
+import AppBar from '@mui/material/AppBar';
+import Brand from './Brand';
+import Cart from './Cart';
+import NavBarItem from './NavBarItem';
+import Toolbar from '@mui/material/Toolbar';
+import { useMediaQuery } from '@mui/material';
 
 function NavBar() {
+    const pages = ['BestSellers', 'Coming Soon', 'New Releases'];
+    const isDesktop = useMediaQuery('(min-width: 700px)');
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Brand />
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <AppBar position='sticky'>
+            <Toolbar>
+                <Brand isDesktop={isDesktop} />
+                {isDesktop &&
+                    <>
+                        {pages.map((page) => (
+                            <NavBarItem name={page} />
+                        ))}
+                    </>
+                }
+                <Cart />
+            </Toolbar>
+        </AppBar >
     );
-}
+};
 
 export default NavBar;

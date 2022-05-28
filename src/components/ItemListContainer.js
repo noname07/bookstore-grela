@@ -1,10 +1,10 @@
-import './ItemListContainer.css';
+import { Typography } from '@mui/material';
 
 function ItemListContainer(props) {
     return (
-        <h1 className='container'>
-            {props.greeting}
-        </h1>
+        <Typography variant='h2' sx={{ textAlign: 'center' }}>
+            {props.greetings}
+        </Typography>
     );
 }
 
