@@ -3,11 +3,9 @@ import Brand from './Brand';
 import Cart from './Cart';
 import NavBarItem from './NavBarItem';
 import Toolbar from '@mui/material/Toolbar';
-import { useMediaQuery } from '@mui/material';
 
-function NavBar() {
+function NavBar({ isDesktop }) {
     const pages = ['BestSellers', 'Coming Soon', 'New Releases'];
-    const isDesktop = useMediaQuery('(min-width: 700px)');
 
     return (
         <AppBar position='sticky'>
@@ -15,8 +13,8 @@ function NavBar() {
                 <Brand isDesktop={isDesktop} />
                 {isDesktop &&
                     <>
-                        {pages.map((page) => (
-                            <NavBarItem name={page} />
+                        {pages.map((p, i) => (
+                            <NavBarItem name={p} key={i} />
                         ))}
                     </>
                 }

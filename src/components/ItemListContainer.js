@@ -1,10 +1,8 @@
-import { Typography } from '@mui/material';
+import ItemList from "./ItemList";
 
-function ItemListContainer(props) {
+function ItemListContainer({ isDesktop }) {
     return (
-        <Typography variant='h2' sx={{ textAlign: 'center' }}>
-            {props.greetings}
-        </Typography>
+        <ItemList isDesktop={isDesktop} />
     );
 }
 
