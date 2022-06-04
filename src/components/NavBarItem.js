@@ -1,9 +1,9 @@
 import { MenuItem, Typography } from "@mui/material";
 
-function NavBarItem(props) {
+function NavBarItem({ name, index }) {
     return (
-        <MenuItem key={props.name}>
-            <Typography textAlign="center">{props.name}</Typography>
+        <MenuItem key={index}>
+            <Typography textAlign="center">{name}</Typography>
         </MenuItem>
     );
 }
