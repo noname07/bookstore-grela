@@ -235,8 +235,7 @@ function promiseWithTimeout(json) {
 }
 
 export const getItems = () => {
-    const shuffledList = items.sort(() => Math.random() - 0.5)
-    return promiseWithTimeout(shuffledList);
+    return promiseWithTimeout(items);
 };
 
 export const getItemById = (id) => {
