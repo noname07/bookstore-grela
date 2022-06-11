@@ -1,4 +1,5 @@
 import ItemDetail from "./ItemDetail";
+import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import { getItemById } from "./AsyncMock";
@@ -16,7 +17,9 @@ function ItemDetailContainer({ isDesktop }) {
     });
 
     return (
-        <ItemDetail {...item} isDesktop={isDesktop} />
+        <Box sx={{ padding: isDesktop ? '4rem' : '0rem', justifyContent: isDesktop && 'center' }}>
+            <ItemDetail {...item} isDesktop={isDesktop} />
+        </Box >
     );
 };
 
