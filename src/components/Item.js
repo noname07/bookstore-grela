@@ -7,9 +7,10 @@ import Typography from '@mui/material/Typography';
 function Item({ id, title, author, price, img, isDesktop }) {
 
     return (
-        <Box sx={{ width: isDesktop ? '30%' : '100%' }}>
+        <Box sx={{ width: isDesktop ? '30%' : '100%', maxWidth: isDesktop ? 263 : '50%', minWidth: isDesktop ? 263 : '90%' }}>
             <Card key={id}>
                 <CardMedia
+                    height={isDesktop ? 400 : 600}
                     component='img'
                     image={img}
                     alt={title} />

@@ -1,4 +1,4 @@
-function ItemDetail({ }) {
+function ItemDetail() {
     return (
         <>
         </>
