@@ -13,8 +13,8 @@ function NavBar({ isDesktop }) {
                 <Brand isDesktop={isDesktop} />
                 {isDesktop &&
                     <>
-                        {pages.map((p, i) => (
-                            <NavBarItem name={p} key={i} />
+                        {pages.map((page, i) => (
+                            <NavBarItem name={page} key={i} />
                         ))}
                     </>
                 }
