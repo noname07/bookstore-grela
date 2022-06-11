@@ -6,7 +6,7 @@ import APassageToIndia from '../../src/img/a-passage-to-india.jpg';
 import Firestarter from '../../src/img/firestarter.jpg';
 import TheTrial from '../../src/img/the-trial.jpg';
 
-const products = [
+const items = [
     {
         id: "1",
         title: "To Kill A Mockingbird",
@@ -206,15 +206,16 @@ function promiseWithTimeout(json) {
     return new Promise((resolve, _) => {
         setTimeout(() => {
             resolve(json);
-        }, 3000);
+        }, 30);
     });
 }
 
-export const getProducts = () => {
-    const shuffledList = products.sort(() => Math.random() - 0.5)
+export const getItems = () => {
+    const shuffledList = items.sort(() => Math.random() - 0.5)
     return promiseWithTimeout(shuffledList);
 };
 
-export const getItems = (id) => {
-    return promiseWithTimeout([products[id]]);
+export const getItemById = (id) => {
+    const item = items.find(item => item.id === id);
+    return promiseWithTimeout(item);
 };

@@ -1,20 +1,10 @@
 import { Box } from "@mui/system";
 import Item from "./Item";
-import { getProducts } from "./AsyncMock";
-import { useEffect, useState } from "react";
 
-function ItemList({ isDesktop }) {
-    const [items, setItems] = useState([]);
-
-    useEffect(() => {
-        getProducts().then(res => {
-            setItems(res);
-        });
-    }, []);
-
+function ItemList({ items, isDesktop }) {
     return (
         <Box m={2} sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', flexDirection: 'row' }}>
-            {items.map((i, k) => <Item key={k} id={k} title={i.title} author={i.author} price={i.price} img={i.img} isDesktop={isDesktop} />)}
+            {items.map((item, k) => <Item key={k} {...item} isDesktop={isDesktop} />)}
         </Box>
     );
 }

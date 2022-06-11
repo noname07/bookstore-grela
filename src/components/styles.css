@@ -1,0 +1,18 @@
+.linkItem {
+    border-bottom: .05em solid;
+    box-shadow: inset 0 -0.05em 0;
+    color: inherit;
+    transition: background-color .25s cubic-bezier(.33, .66, .66, 1);
+    text-decoration: none;
+}
+
+.linkItem:hover,
+.linkItem:focus,
+.linkItem:active {
+    background-color: #b4e7f8;
+}
+
+.linkBrand {
+    color: inherit;
+    text-decoration: none;
+}
