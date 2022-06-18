@@ -1,5 +1,5 @@
 import './styles.css';
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { CardContent, CardMedia, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 
 function ItemDetail({ id, title, description, author, price, img, isDesktop }) {

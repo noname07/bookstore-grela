@@ -13,7 +13,7 @@ function ItemListContainer({ isDesktop }) {
     useEffect(() => {
         const category = hashMap[params.category];
 
-        if (category != undefined) {
+        if (category !== undefined) {
             getItemsByCategory(category)
                 .then(res => {
                     setItems(res);
