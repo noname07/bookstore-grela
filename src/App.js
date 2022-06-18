@@ -5,8 +5,9 @@ import NavBar from './components/NavBar';
 import { useMediaQuery } from '@mui/material';
 import React, { useEffect } from 'react';
 
+export const CartContext = React.createContext({});
+
 function App() {
-  const CartContext = React.createContext({});
   const isDesktop = useMediaQuery('(min-width: 700px)');
 
   useEffect(() => {
