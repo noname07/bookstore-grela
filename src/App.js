@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <CartContext.Provider value={[]}>
+        <CartContext.Provider value={{}}>
           <NavBar isDesktop={isDesktop} />
           <Routes>
             <Route path='/' element={<ItemListContainer isDesktop={isDesktop} />} />
