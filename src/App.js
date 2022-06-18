@@ -4,8 +4,7 @@ import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import { useMediaQuery } from '@mui/material';
 import React, { useEffect } from 'react';
-
-export const CartContext = React.createContext({});
+import { CartProvider } from './components/CartProvider';
 
 function App() {
   const isDesktop = useMediaQuery('(min-width: 700px)');
@@ -16,8 +15,8 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <CartContext.Provider value={{}}>
+      <CartProvider>
+        <BrowserRouter>
           <NavBar isDesktop={isDesktop} />
           <Routes>
             <Route path='/' element={<ItemListContainer isDesktop={isDesktop} />} />
@@ -26,8 +25,8 @@ function App() {
               <ItemDetailContainer isDesktop={isDesktop}
               />} />
           </Routes>
-        </CartContext.Provider>
-      </BrowserRouter >
+        </BrowserRouter >
+      </CartProvider>
     </>
   );
 }
