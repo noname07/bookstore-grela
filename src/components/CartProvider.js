@@ -1,4 +1,3 @@
-import { ConstructionOutlined } from "@mui/icons-material";
 import { createContext, useState } from "react";
 
 export const CartContext = createContext([]);

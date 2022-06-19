@@ -17,7 +17,7 @@ function ItemDetail({ id, title, description, author, price, img, isDesktop }) {
 
         setIsInCart(is);
         setCanFinish(can);
-    }, [cartContext])
+    }, [cartContext, id])
 
     const add = () => {
         cartContext.addItem({
