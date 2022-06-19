@@ -1,3 +1,4 @@
+import { ConstructionOutlined } from "@mui/icons-material";
 import { createContext, useState } from "react";
 
 export const CartContext = createContext([]);
@@ -12,19 +13,32 @@ export function CartProvider({ children }) {
     const addItem = (item) => {
         let newCart = cart.map(element => ({ ...element }));
 
-        isInCart(item.id) ?
-            newCart[item.id].quantity = ++newCart[item.id].quantity :
+        if (isInCart(item.id)) {
+            newCart.forEach(element => {
+                if (element?.item?.id === item.id) {
+                    element.quantity = element.quantity + 1;
+                }
+            });
+        }
+        else {
             newCart = [{ item, quantity: 1 }, ...newCart];
+        }
 
         setCart(newCart);
     };
 
     const removeItem = (id) => {
         let newCart = cart.map(element => ({ ...element }));
-
-        newCart[id].quantity > 1 ?
-            newCart[id].quantity = --newCart[id].quantity :
-            newCart = newCart.filter(element => element.id !== id);
+        newCart.forEach(element => {
+            if (element?.item?.id === id.toString()) {
+                if (element?.quantity > 1) {
+                    element.quantity = element.quantity - 1;
+                }
+                else {
+                    newCart = newCart.filter(element => element?.item?.id !== id);
+                }
+            }
+        });
 
         setCart(newCart);
     };
@@ -35,12 +49,21 @@ export function CartProvider({ children }) {
 
     const isInCart = (id) => {
         const newCart = cart.map(element => ({ ...element }));
-        const isIn = newCart.filter(element => element.id === id).length > 0;
+        const isIn = newCart.filter(element => element?.item?.id === id).length > 0;
+
         return isIn;
-    }
+    };
+
+    const countItems = () => {
+        const items = getItems();
+        const hashMap = items.map(element => element.quantity);
+        const count = hashMap.reduce((prev, curr) => prev + curr, 0);
+
+        return count;
+    };
 
     return (
-        <CartContext.Provider value={{ cart, getItems, addItem, removeItem, clear, isInCart }}>
+        <CartContext.Provider value={{ cart, getItems, addItem, removeItem, clear, isInCart, countItems }}>
             {children}
         </CartContext.Provider>
     );

@@ -10,9 +10,7 @@ function NavBarCartIcon() {
     const cartContext = useContext(CartContext);
 
     useEffect(() => {
-        const items = cartContext.getItems();
-        const hashMap = items.map(element => element.quantity);
-        const count = hashMap.reduce((prev, curr) => prev + curr, 0);
+        const count = cartContext.countItems();
 
         setCounter(count);
     }, [cartContext]);
