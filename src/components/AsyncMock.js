@@ -72,7 +72,6 @@ export const getItemById = (id) => {
 };
 
 export const getItemsByCategory = (category) => {
-    console.log(category);
     const item = items.filter(item => item.category === category);
     return promiseWithTimeout(item);
 }
