@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
-import Brand from './Brand';
-import Cart from './Cart';
+import NavBarBrand from './NavbarBrand';
+import NavBarCartIcon from './NavbarCartIcon';
 import NavBarItem from './NavBarItem';
 import Toolbar from '@mui/material/Toolbar';
 
@@ -10,7 +10,7 @@ function NavBar({ isDesktop }) {
     return (
         <AppBar position='sticky'>
             <Toolbar>
-                <Brand isDesktop={isDesktop} />
+                <NavBarBrand isDesktop={isDesktop} />
                 {isDesktop &&
                     <>
                         {pages.map((page, i) => (
@@ -18,7 +18,7 @@ function NavBar({ isDesktop }) {
                         ))}
                     </>
                 }
-                <Cart />
+                <NavBarCartIcon />
             </Toolbar>
         </AppBar >
     );

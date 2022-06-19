@@ -1,12 +1,9 @@
-import { Box } from '@mui/system';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 function Cart() {
     return (
-        <Box ml={2}>
-            <ShoppingCartIcon />
-        </Box>
+        <h1>
+            Cart
+        </h1>
     );
-}
+};
 
 export default Cart;
