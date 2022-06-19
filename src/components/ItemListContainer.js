@@ -8,9 +8,9 @@ function ItemListContainer({ isDesktop }) {
 
     const params = useParams();
 
-    const hashMap = { 'bestsellers': 'BestSellers', 'coming-soon': 'Coming Soon', 'new-releases': 'New Releases' };
 
     useEffect(() => {
+        const hashMap = { 'bestsellers': 'BestSellers', 'coming-soon': 'Coming Soon', 'new-releases': 'New Releases' };
         const category = hashMap[params.category];
 
         if (category !== undefined) {
