@@ -8,7 +8,7 @@ function ItemListContainer({ isDesktop }) {
 
     const params = useParams();
 
-    const hashMap = { 'best-sellers': 'BestSellers', 'coming-soon': 'Coming Soon', 'new-releases': 'New Releases' };
+    const hashMap = { 'bestsellers': 'BestSellers', 'coming-soon': 'Coming Soon', 'new-releases': 'New Releases' };
 
     useEffect(() => {
         const category = hashMap[params.category];
@@ -25,7 +25,7 @@ function ItemListContainer({ isDesktop }) {
                     setItems(res);
                 });
         }
-    });
+    }, [params]);
 
     return (
         <ItemList items={items} isDesktop={isDesktop} />
