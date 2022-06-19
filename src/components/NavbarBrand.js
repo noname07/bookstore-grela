@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Typography } from "@mui/material";
 
-function Brand({ isDesktop }) {
+function NavBarBrand({ isDesktop }) {
     return (
         <>
             <Box mr={2} >
@@ -18,4 +18,4 @@ function Brand({ isDesktop }) {
     )
 }
 
-export default Brand;
+export default NavBarBrand;

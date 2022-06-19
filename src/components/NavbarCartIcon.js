@@ -4,7 +4,7 @@ import { CartContext } from './CartProvider';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useContext, useEffect, useState } from 'react';
 
-function Cart() {
+function NavBarCartIcon() {
     const [counter, setCounter] = useState(0);
 
     const cartContext = useContext(CartContext);
@@ -27,4 +27,4 @@ function Cart() {
     );
 }
 
-export default Cart;
+export default NavBarCartIcon;
