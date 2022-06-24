@@ -15,7 +15,7 @@ function NavBarCartIcon() {
         const count = cartContext.countItems();
 
         setCounter(count);
-    }, [cartContext]);
+    }, [cartContext, counter]);
 
 
 
