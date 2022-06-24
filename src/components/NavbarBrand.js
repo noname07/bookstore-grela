@@ -6,13 +6,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Typography } from "@mui/material";
 
 function NavBarBrand({ isDesktop }) {
+    const to = '/';
+
     return (
         <>
-            <Box mr={2} >
+            <Box mr={2} className='linkBrand' component={Link} to={to} >
                 {isDesktop ? <AutoStoriesIcon /> : <MenuIcon />}
             </Box>
             <Typography variant='h6' sx={{ flexGrow: 1 }}>
-                <Link to='/' className='linkBrand'>Bookstore</Link>
+                <Link to={to} className='linkBrand'>Bookstore</Link>
             </Typography>
         </>
     )

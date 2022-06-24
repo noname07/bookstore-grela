@@ -3,13 +3,13 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 
-function Item({ id, title, author, price, img, isDesktop }) {
+function Item({ id, title, author, price, img }) {
 
     return (
-        <Box sx={{ width: isDesktop ? '30%' : '100%', maxWidth: isDesktop ? 263 : '50%', minWidth: isDesktop ? 263 : '100%' }}>
+        <Box sx={{ width: '30%', maxWidth: 263, minWidth: 263 }}>
             <Card key={id}>
                 <CardMedia
-                    height={isDesktop ? 400 : 600}
+                    height={400}
                     component='img'
                     image={img}
                     alt={title} />
