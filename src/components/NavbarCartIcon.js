@@ -1,23 +1,10 @@
 import { Box } from '@mui/system';
 import CartCounter from './CartCounter';
-import { CartContext } from './CartProvider';
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useContext, useEffect, useState } from 'react';
 
-function NavBarCartIcon() {
+function NavBarCartIcon({ counter }) {
     const to = '/cart';
-    const [counter, setCounter] = useState(0);
-
-    const cartContext = useContext(CartContext);
-
-    useEffect(() => {
-        const count = cartContext.countItems();
-
-        setCounter(count);
-    }, [cartContext, counter]);
-
-
 
     return (
         <>
