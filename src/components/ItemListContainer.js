@@ -1,8 +1,9 @@
-import { getItems, getItemsByCategory } from "./AsyncMock";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 import ItemList from "./ItemList";
 import { Typography } from "@mui/material";
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { db } from "../devices/firebase";
 
 function ItemListContainer({ isDesktop }) {
     const [items, setItems] = useState([]);
@@ -14,22 +15,20 @@ function ItemListContainer({ isDesktop }) {
         const hashMap = { 'bestsellers': 'BestSellers', 'coming-soon': 'Coming Soon', 'new-releases': 'New Releases' };
         const category = hashMap[params.category];
 
-        if (category !== undefined) {
-            getItemsByCategory(category)
-                .then(res => {
-                    setItems(res);
-                });
+        category !== undefined ? setTitle(category) : setTitle('Welcome!');
 
-            setTitle(category);
-        }
-        else {
-            getItems()
-                .then(res => {
-                    setItems(res);
-                });
+        const collectionRef = category ? (
+            query(collection(db, 'Products'), where('category', '==', category))
+        ) : (collection(db, 'Products'))
 
-            setTitle('Welcome!');
-        }
+        getDocs(collectionRef).then(response => {
+            const prodsFormatted = response.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            });
+            setItems(prodsFormatted)
+        }).catch(error => {
+            console.log(error)
+        })
     }, [params]);
 
     return (

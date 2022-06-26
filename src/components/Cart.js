@@ -20,9 +20,10 @@ function Cart() {
 
     useEffect(() => {
         const items = cartContext.getItems();
-        // const totalPrice = items?.length ?? 100;
+        const totalPrice = items.map((item) => parseFloat(item?.item.price) * parseFloat(item?.quantity)).reduce((partialSum, a) => partialSum + a, 0);
 
         setItems(items);
+        setTotalPrice(totalPrice);
     }, [cartContext]);
 
     return (

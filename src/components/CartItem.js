@@ -27,7 +27,7 @@ function CartItem({ item, quantity, remove, key }) {
                 secondary={`Quantity: ${quantity}`}
             />
             <ListItemText
-                primary={`US$ ${price}`}
+                primary={`US$${price}`}
             />
         </ListItem>
     );
