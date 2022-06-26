@@ -2,7 +2,8 @@ import ItemDetail from "./ItemDetail";
 import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
-import { getItemById } from "./AsyncMock";
+import { db } from "../devices/firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 function ItemDetailContainer({ isDesktop }) {
     const [item, setItem] = useState();
@@ -10,10 +11,12 @@ function ItemDetailContainer({ isDesktop }) {
     const params = useParams();
 
     useEffect(() => {
-        getItemById(params.itemId)
-            .then(response => {
-                setItem(response);
-            });
+        const docRef = doc(db, 'products', params.itemId)
+
+        getDoc(docRef).then(doc => {
+            const productFormatted = { id: doc.id, ...doc.data() }
+            setItem(productFormatted)
+        }).catch(error => console.log(error))
     });
 
     return (

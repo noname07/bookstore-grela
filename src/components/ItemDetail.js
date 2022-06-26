@@ -29,12 +29,6 @@ function ItemDetail({ id, title, description, author, price, img, isDesktop }) {
         alert('Added to the basket!')
     }
 
-    const remove = () => {
-        cartContext.removeItem(id);
-
-        alert('One item has been removed from the cart')
-    }
-
     return (
         <Box key={id} sx={{ display: 'flex', flexDirection: isDesktop ? 'row' : 'column', border: '.1rem solid #e2e2e2' }}>
             <CardMedia
@@ -55,7 +49,6 @@ function ItemDetail({ id, title, description, author, price, img, isDesktop }) {
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2, marginTop: '2rem', alignSelf: 'end', justifyContent: 'end' }} >
                     <Button onClick={() => add()} variant="contained">{isInCart ? 'Add anoter one!' : 'Add to cart'}</Button>
-                    {isInCart && <Button onClick={() => remove()} variant="contained">Remove</Button>}
                     {canFinish && <Button component={Link} to={'/cart'} variant="contained">Finish</Button>}
                 </Box>
             </CardContent >
